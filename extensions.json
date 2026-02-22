@@ -1,0 +1,419 @@
+/* Base Styles & Variables */
+:root {
+    --bg-color: #0d1117;
+    --card-bg: rgba(22, 27, 34, 0.65);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --color-green: #2ea043;
+    --color-green-glow: rgba(46, 160, 67, 0.4);
+    --color-yellow: #d29922;
+    --color-yellow-glow: rgba(210, 153, 34, 0.4);
+    --color-red: #f85149;
+    --color-red-glow: rgba(248, 81, 73, 0.4);
+    --color-blue: #58a6ff;
+    --color-blue-glow: rgba(88, 166, 255, 0.4);
+    --color-accent: #58a6ff;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(88, 166, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(46, 160, 67, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* Glassmorphism Utilities */
+.glass-effect {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* App Layout */
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Header */
+.dashboard-header {
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #58a6ff, #a371f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.coach-info {
+    text-align: right;
+}
+
+.train-name {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.coach-number {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.header-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+
+/* Main Grid */
+.units-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Unit Card */
+.unit-card {
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.unit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.unit-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.unit-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.unit-type {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+/* LED Status Ring */
+.status-container {
+    padding: 1rem 0;
+}
+
+.led-ring {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.led-ring::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    animation: rotate 20s linear infinite;
+}
+
+.led-center {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--card-border);
+}
+
+.status-text {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Status Colors & Glows */
+.ring-green {
+    background: conic-gradient(from 0deg, var(--color-green), transparent 60%);
+    box-shadow: 0 0 30px var(--color-green-glow);
+}
+
+.ring-green .status-text {
+    color: var(--color-green);
+    text-shadow: 0 0 10px var(--color-green-glow);
+}
+
+.ring-yellow {
+    background: conic-gradient(from 0deg, var(--color-yellow), var(--color-yellow) 100%);
+    box-shadow: 0 0 40px var(--color-yellow-glow);
+    animation: pulse-ring 2s infinite;
+}
+
+.ring-yellow .status-text {
+    color: var(--color-yellow);
+    text-shadow: 0 0 10px var(--color-yellow-glow);
+}
+
+.ring-blue {
+    background: conic-gradient(from 0deg, var(--color-blue), var(--color-blue) 100%);
+    box-shadow: 0 0 40px var(--color-blue-glow);
+    animation: pulse-ring-blue 2s infinite;
+}
+
+.ring-blue .status-text {
+    color: var(--color-blue);
+    text-shadow: 0 0 10px var(--color-blue-glow);
+}
+
+.ring-red {
+    background: conic-gradient(from 0deg, var(--color-red), var(--color-red) 100%);
+    box-shadow: 0 0 30px var(--color-red-glow);
+}
+
+.ring-red .status-text {
+    color: var(--color-red);
+    text-shadow: 0 0 10px var(--color-red-glow);
+}
+
+.ring-red::before {
+    animation: none;
+    border: 2px solid rgba(248, 81, 73, 0.3);
+}
+
+/* Buttons */
+.action-container {
+    width: 100%;
+}
+
+.btn-clean {
+    width: 100%;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(88, 166, 255, 0.05));
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-clean::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: all 0.5s ease;
+}
+
+.btn-clean:hover:not(:disabled) {
+    background: rgba(88, 166, 255, 0.15);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-clean:hover:not(:disabled)::before {
+    left: 100%;
+}
+
+.btn-clean:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-clean:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn-clean.locked {
+    color: var(--color-red);
+    background: rgba(248, 81, 73, 0.05);
+    border-color: rgba(248, 81, 73, 0.2);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: -0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.progress-bar-container.active {
+    opacity: 1;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--color-yellow);
+    border-radius: 4px;
+    box-shadow: 0 0 10px var(--color-yellow);
+    transition: width 0.1s linear;
+}
+
+/* Animations */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 20px var(--color-yellow-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 50px var(--color-yellow-glow);
+    }
+
+    100% {
+        box-shadow: 0 0 20px var(--color-yellow-glow);
+    }
+}
+
+@keyframes pulse-ring-blue {
+    0% {
+        box-shadow: 0 0 20px var(--color-blue-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 50px var(--color-blue-glow);
+    }
+
+    100% {
+        box-shadow: 0 0 20px var(--color-blue-glow);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .coach-info {
+        text-align: left;
+    }
+
+    .led-ring {
+        width: 140px;
+        height: 140px;
+    }
+
+    .led-center {
+        width: 110px;
+        height: 110px;
+    }
+
+    .status-text {
+        font-size: 1rem;
+    }
+}
