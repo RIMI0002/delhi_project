@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwachhRail Auto-Clean | HWH-NDLS Rajdhani</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="dashboard-header glass-effect">
+            <div class="header-content">
+                <div class="logo-area">
+                    <span class="logo-icon">🚄</span>
+                    <h1 class="logo-text">SwachhRail Auto-Clean</h1>
+                </div>
+                <div class="coach-info">
+                    <span class="train-name">HWH-NDLS Rajdhani Express</span>
+                    <h2 class="coach-number">Coach Dashboard - A1</h2>
+                </div>
+            </div>
+            <div class="header-decoration"></div>
+        </header>
+        <!-- Main Content Section -->
+        <main class="dashboard-main">
+            <div class="units-grid">
+
+                <!-- Unit A1 -->
+                <div class="unit-card glass-effect" id="unit-a1">
+                    <div class="unit-header">
+                        <h3>Unit A1</h3>
+                        <span class="unit-type">Western</span>
+                    </div>
+                    <div class="status-container">
+                        <div class="led-ring ring-green" id="led-a1">
+                            <div class="led-center">
+                                <span class="status-text" id="status-text-a1">Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-container">
+                        <button class="btn-clean" id="btn-a1" onclick="activateAutoClean('a1')">
+                            <span class="btn-icon">✨</span>
+                            ACTIVATE AUTO-CLEAN
+                        </button>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-a1"></div>
+                    </div>
+                </div>
+                <!-- Unit A2 -->
+                <div class="unit-card glass-effect" id="unit-a2">
+                    <div class="unit-header">
+                        <h3>Unit A2</h3>
+                        <span class="unit-type">Indian</span>
+                    </div>
+                    <div class="status-container">
+                        <div class="led-ring ring-green" id="led-a2">
+                            <div class="led-center">
+                                <span class="status-text" id="status-text-a2">Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-container">
+                        <button class="btn-clean" id="btn-a2" onclick="activateAutoClean('a2')">
+                            <span class="btn-icon">✨</span>
+                            ACTIVATE AUTO-CLEAN
+                        </button>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-a2"></div>
+                    </div>
+                </div>
+                <!-- Unit B1 -->
+                <div class="unit-card glass-effect" id="unit-b1">
+                    <div class="unit-header">
+                        <h3>Unit B1</h3>
+                        <span class="unit-type">Western</span>
+                    </div>
+                    <div class="status-container">
+                        <div class="led-ring ring-green" id="led-b1">
+                            <div class="led-center">
+                                <span class="status-text" id="status-text-b1">Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-container">
+                        <button class="btn-clean" id="btn-b1" onclick="activateAutoClean('b1')">
+                            <span class="btn-icon">✨</span>
+                            ACTIVATE AUTO-CLEAN
+                        </button>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-b1"></div>
+                    </div>
+                </div>
+                <!-- Unit B2 -->
+                <div class="unit-card glass-effect" id="unit-b2">
+                    <div class="unit-header">
+                        <h3>Unit B2</h3>
+                        <span class="unit-type">Indian</span>
+                    </div>
+                    <div class="status-container">
+                        <div class="led-ring ring-green" id="led-b2">
+                            <div class="led-center">
+                                <span class="status-text" id="status-text-b2">Ready</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-container">
+                        <button class="btn-clean" id="btn-b2" onclick="activateAutoClean('b2')">
+                            <span class="btn-icon">✨</span>
+                            ACTIVATE AUTO-CLEAN
+                        </button>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-b2"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
